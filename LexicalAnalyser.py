@@ -76,16 +76,24 @@ class Token:
 
 
 class LexicalAnalyser:
+    class State(Enum):
+        VALID = auto()
+        SINK = auto()
+        DIGIT = auto()
+    
+    state = State.VALID
 
     @classmethod
     def analyse(cls, input):
         # Complete this method.
         # You will probably need to add more to this class.
+        arr = input.replace(' ', '').split()
+    
         return []
 
 
 def main():
-    print(LexicalAnalyser.analyse("Put something here to test"))
+    print(LexicalAnalyser.analyse("1+      1+1"))
 
 
 if __name__ == "__main__":
